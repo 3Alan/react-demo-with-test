@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <Header /> Header UI 测试 1`] = `
+<div>
+  <input
+    autoFocus={true}
+    data-test="input"
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    placeholder="test ui"
+    value=""
+  />
+</div>
+`;
