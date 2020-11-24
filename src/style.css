@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .list-item {
     display: flex;
     margin-bottom: 10px;
@@ -5,4 +7,8 @@
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+.nav {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
