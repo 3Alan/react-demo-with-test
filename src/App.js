@@ -16,8 +16,8 @@ function App() {
           <Button><Link to="/todo-list">todoList</Link></Button>
         </div>
         <Route path="/order-demo" exact component={OrderDemo} />
-          <Route path="/todo-list" exact component={TodoList} />
-        </Router>
+        <Route path="/todo-list" exact component={TodoList} />
+      </Router>
     </Provider>
   );
 }

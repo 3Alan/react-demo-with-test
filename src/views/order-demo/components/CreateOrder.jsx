@@ -27,7 +27,7 @@ export default function CreateOrder() {
     values.transferOrder = false;
     list.push(values);
     dispatch(createOrder(list));
-    console.log('Success:', values);
+    console.log('Success:', list);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -45,12 +45,13 @@ export default function CreateOrder() {
         name="basic"
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
+        data-testid="form"
       >
         <Form.Item label="用户名" name="user" key="user">
         <Select
             style={{ width: 120 }}
             onChange={() => handleChange('user')}
-            data-test="user"
+            data-testid="user"
           >
             {userList.map((item, index) => (
               <Option value={item} key={index}>{item}</Option>
@@ -62,19 +63,19 @@ export default function CreateOrder() {
           <Select
             style={{ width: 120 }}
             onChange={() => handleChange('num')}
-            data-test="num"
+            data-testid="num"
           >
             {numList.map((item, index) => (
               <Option value={item} key={index}>{item}</Option>
             ))}
           </Select>
         </Form.Item>
-        <Form.Item label="单价" name="price" data-test="price">
-          <Input type="number" autoComplete="off" />
+        <Form.Item label="单价" name="price">
+          <Input type="number" autoComplete="off" data-testid="price" />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit" data-test="submit">
+          <Button type="primary" htmlType="submit" data-testid="submit">
             创建订单
           </Button>
         </Form.Item>

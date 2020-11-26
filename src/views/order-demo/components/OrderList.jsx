@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Table, Button, Tag, Input, message } from 'antd';
@@ -123,7 +124,6 @@ export default function OrderList() {
         .reduce(function (prev, cur, index, array) {
           return prev + cur;
         });
-      console.log(alanTotalNum);
       setAlanTotalPrice(alanTotalPrice);
       setAlanTotalNum(alanTotalNum);
     }
@@ -156,7 +156,7 @@ export default function OrderList() {
       title: '用户名',
       dataIndex: 'user',
       key: 'user',
-      render: (text) => <a>{text}</a>,
+      render: (text) => <a data-testid="user">{text}</a>,
     },
     {
       title: '课时数',
@@ -204,14 +204,14 @@ export default function OrderList() {
         />
       </Modal>
       <div style={{ height: '50vh', position: 'relative' }}>
-        <Table columns={columns} dataSource={alan} pagination={false} />
+        <Table columns={columns} dataSource={alan} pagination={false} rowKey={record => record.orderId} />
         <div style={{ position: 'absolute', bottom: 20 }}>
           <Tag color="red">课程总数：{alanTotalNum}</Tag>
           <Tag color="blue">总价格：{alanTotalPrice}</Tag>
         </div>
       </div>
       <div style={{ height: '50vh', position: 'relative' }}>
-        <Table columns={columns} dataSource={bob} pagination={false} />
+        <Table columns={columns} dataSource={bob} pagination={false} rowKey={record => record.orderId} />
         <div style={{ position: 'absolute', bottom: 20 }}>
           <Tag color="red">课程总数：{bobTotalNum}</Tag>
           <Tag color="blue">总价格：{bobTotalPrice}</Tag>
