@@ -1,3 +1,4 @@
+// @testing-library/react版
 import React from 'react';
 import OrderList from '../OrderList';
 import configureStore from 'redux-mock-store';

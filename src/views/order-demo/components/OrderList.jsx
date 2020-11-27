@@ -101,10 +101,10 @@ export default function OrderList() {
     } else {
       return (
         <>
-          <Button type="primary" danger onClick={() => openRefundModal(record.orderId)}>
+          <Button type="primary" data-testid="refund" danger onClick={() => openRefundModal(record.orderId)}>
             退款
           </Button>
-          <Button type="primary" onClick={() => openTransferModal(record.orderId)}>转让</Button>
+          <Button type="primary" data-testid="transfer" onClick={() => openTransferModal(record.orderId)}>转让</Button>
         </>
       );
     }

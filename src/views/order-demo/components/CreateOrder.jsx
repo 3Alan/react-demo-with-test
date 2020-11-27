@@ -20,18 +20,13 @@ export default function CreateOrder() {
 
   const onFinish = (values) => {
     const list = JSON.parse(JSON.stringify(orderList));
-    values.orderId = (new Date()).valueOf();
+    values.orderId = new Date().valueOf();
     values.total = values.num * values.price;
     values.refund = false;
     values.refundOrder = false;
     values.transferOrder = false;
     list.push(values);
     dispatch(createOrder(list));
-    console.log('Success:', list);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
   };
 
   const handleChange = (key, value) => {
@@ -39,22 +34,18 @@ export default function CreateOrder() {
   };
 
   return (
-    <div style={{padding: 10}}>
-      <Form
-        {...layout}
-        name="basic"
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        data-testid="form"
-      >
+    <div style={{ padding: 10 }}>
+      <Form {...layout} name="basic" onFinish={onFinish} data-testid="form">
         <Form.Item label="用户名" name="user" key="user">
-        <Select
+          <Select
             style={{ width: 120 }}
             onChange={() => handleChange('user')}
             data-testid="user"
           >
             {userList.map((item, index) => (
-              <Option value={item} key={index}>{item}</Option>
+              <Option value={item} key={index} data-testid="option">
+                {item}
+              </Option>
             ))}
           </Select>
         </Form.Item>
@@ -66,7 +57,9 @@ export default function CreateOrder() {
             data-testid="num"
           >
             {numList.map((item, index) => (
-              <Option value={item} key={index}>{item}</Option>
+              <Option value={item} key={index}>
+                {item}
+              </Option>
             ))}
           </Select>
         </Form.Item>
